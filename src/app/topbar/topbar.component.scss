@@ -1,0 +1,39 @@
+.topbar{
+  height: 80px;
+  width: auto;
+  place-items: center;
+  display: flex;
+}
+.title{
+  font-size: 24px;
+  color: black;
+  font-family: 'B612 Mono', monospace;
+}
+
+.itemcenter{
+  place-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.yuvarlak{
+  border-radius: 30px;
+}
+.stick{
+  width: 800px;
+  height: 40px;
+  font-family: 'B612 Mono', monospace;
+  font-size: 16px;
+  color: black;
+  place-items: center;
+}
+.input-group-text.yuvarlak {
+  background-color: black; /* Başlangıç arkaplan rengi */
+  border-color: black; /* Kenar çizgisi rengi */
+  transition: background-color 0.3s; /* Geçiş efekti */
+}
+
+.input-group-text.yuvarlak:hover {
+  background-color:#7dff3e; /* Fare imleci üstüne gelindiğinde arkaplan rengi */
+  border-color: #7dff3e; /* Kenar çizgisi rengi */
+}
