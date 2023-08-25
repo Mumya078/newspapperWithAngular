@@ -37,3 +37,22 @@
   background-color:#7dff3e; /* Fare imleci üstüne gelindiğinde arkaplan rengi */
   border-color: #7dff3e; /* Kenar çizgisi rengi */
 }
+.mobilemenu{
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .title{
+    font-size: 20px;
+    color: black;
+    font-family: 'B612 Mono', monospace;
+    padding-top: 10px;
+  }
+  .desktop{
+    display: none;
+  }
+  .mobilemenu{
+    font-size: 20px;
+    display: flex;
+  }
+}

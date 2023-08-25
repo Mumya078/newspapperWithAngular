@@ -19,3 +19,27 @@
   padding-top: 20px;
 }
 
+.imga{
+  width: auto;
+  height: 350px;
+}
+.a{
+  height: 60px;
+  margin-top: 320px;
+}
+
+@media (max-width: 767px) {
+  #carouselExampleIndicators {
+    width: 400px; /* İstediğiniz genişlik değeri */
+    height: 200px; /* İstediğiniz yükseklik değeri */
+  }
+  .imga{
+    width: auto;
+    height: 210px;
+  }
+  .a{
+    height: 30px;
+    margin-top: 230px;
+  }
+}
+

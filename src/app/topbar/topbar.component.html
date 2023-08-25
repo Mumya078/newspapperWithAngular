@@ -1,23 +1,30 @@
 <div class="container">
-  <div class="row topbar">
-    <div class="col-lg-6 title">
-      Meranda
+  <div class="row topbar d-flex">
+    <div class="col-lg-6 d-flex justify-content-between">
+      <div class="title">
+        Meranda
+      </div>
+      <div class="mobilemenu" style="padding-top: 8px;padding-right: 5px;padding-bottom: 5px">
+        <a (click)="toggleRoute()">
+         <i class="fa-solid fa-bars"></i>
+        </a>
+      </div>
     </div>
     <div class="col-lg-6 justify-content-center d-flex">
       <div class="col-3 justify-content-between d-flex" style="margin-right: 3px">
         <div class="itemcenter">
           <a href="javascript:void(0)">
-            <i class="fa-brands fa-facebook fa-lg" style="color: black"></i>
+            <i class="fa-brands fa-facebook" style="color: black"></i>
           </a>
         </div>
         <div class="itemcenter">
           <a href="javascript:void(0)">
-            <i class="fa-brands fa-instagram fa-lg" style="color: black"></i>
+            <i class="fa-brands fa-instagram" style="color: black"></i>
           </a>
         </div>
         <div class="itemcenter">
           <a href="javascript:void(0)">
-            <i class="fa-brands fa-twitter fa-lg" style="color: black"></i>
+            <i class="fa-brands fa-twitter" style="color: black"></i>
           </a>
         </div>
       </div>
@@ -32,6 +39,7 @@
     </div>
   </div>
 
+<div class="desktop">
   <div class="sticky-top stick d-flex justify-content-between">
     <div class="d-flex">
       Business
@@ -52,4 +60,5 @@
       Technology
     </div>
   </div>
+</div>
 </div>

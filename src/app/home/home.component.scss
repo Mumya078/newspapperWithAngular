@@ -1,0 +1,89 @@
+.news{
+  display: flex;
+  float: left;
+}
+
+.placeitem{
+  place-items: center;
+}
+
+.number{
+  font-size: 35px;
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+.title{
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  padding-bottom: 10px;
+}
+.detail{
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  color: lightgray;
+  padding-bottom: 25px;
+}
+.atitle{
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+.adetail{
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  color: lightgray;
+}
+.img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.ttitle{
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+
+}
+.tdetail{
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  color: lightgray;
+}
+.desktop{
+  display: flex;
+}
+.mobile{
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 16px;
+    padding-bottom: 5px;
+  }
+  .detail {
+    font-size: 12px;
+    padding-bottom: 5px;
+  }
+  .img {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+  }
+  .atitle {
+    font-size: 12px;
+  }
+  .adetail {
+    font-size: 12px;
+  }
+  .desktop{
+    display: none;
+  }
+  .mobile{
+    display: flex;
+  }
+  .number{
+    font-size: 30px;
+  }
+}
