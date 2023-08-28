@@ -1,25 +1,25 @@
 <app-slider></app-slider>
 <div class="container d-flex " style="margin-top: 50px">
+
   <div class="desktop">
     <div class="d-flex flex-column">
       <h2 style="padding-bottom: 80px">
         Recent News
       </h2>
-
-      <div class="d-flex"  *ngFor="let new of results.articles;let i = index" style="margin-bottom: 10px">
+      <div class="d-flex"  *ngFor="let new of results?.articles;let i = index" style="margin-bottom: 10px">
           <div class="col-md-8 flex-column d-flex" style="color: white">
             <div class="d-flex title">
-              {{results.articles[i].author}}
+              {{results.articles[i]?.author}}
             </div>
             <div class="d-flex detail">
-              {{results.articles[i].title}}
+              {{results.articles[i]?.title}}
             </div>
             <div class="d-flex flex-column">
               <div class="d-flex atitle">
-                Dave Rogers in News
+                {{results.articles[i]?.source.name}}
               </div>
               <div class="d-flex adetail">
-                Jun 14 • 3 min read
+                {{results.articles[i]?.publishedAt}}
               </div>
             </div>
         </div>
@@ -27,26 +27,25 @@
           <img src="assets/img/dog.jpg" class="img">
         </div>
       </div>
-
   </div>
+
   <div class="d-flex flex-column col-md-4">
     <h2 style="padding-bottom: 70px">
       Popular
     </h2>
-
-    <div class="d-flex justify-content-center" style="padding-bottom: 15px">
+    <div class="d-flex justify-content-center" style="padding-bottom: 15px" *ngFor="let new of results?.articles | slice:0:5;let i = index">
       <div class="number d-flex col-md-3 justify-content-center">
-        01
+        {{i+1}}
       </div>
       <div class="d-flex col-md-9 flex-column" style="padding-top: 5px">
         <div class="atitle" style="padding-bottom: 25px">
-          News Needs to Meet Its Audiences Where They Are
+          {{results.articles[i]?.title}}
         </div>
         <div class="d-flex ttitle">
-          Dave Rogers in News
+          {{results.articles[i]?.author}}
         </div>
         <div class="d-flex tdetail">
-          Jun 14 • 3 min read
+          {{results.articles[i]?.publishedAt}}
         </div>
       </div>
     </div>
@@ -55,51 +54,31 @@
 
 
   <div class="mobile">
-
     <div class="d-flex flex-column">
       <div>
         <!-- Mobile Populers Start -->
-
         <div class="d-flex flex-column">
           <h3 style="padding-bottom: 30px">
             Popular
           </h3>
           <!-- Mobile Populer1 Start -->
-          <div class="d-flex justify-content-center" style="padding-bottom: 15px">
+          <div class="d-flex justify-content-center" *ngFor="let new of results?.articles | slice:0:5;let i = index" style="padding-bottom: 15px">
             <div class="number d-flex col-1 justify-content-center">
-              01
+              {{i+1}}
             </div>
             <div class="d-flex flex-column col-9" style="padding-top: 5px;padding-left: 10px">
               <div class="atitle" style="padding-bottom: 5px">
-                News Needs to Meet Its Audiences Where They Are
+                {{results.articles[i]?.title}}
               </div>
               <div class="d-flex ttitle">
-                Dave Rogers in News
+                {{results.articles[i]?.author}}
               </div>
               <div class="d-flex tdetail">
-                Jun 14 • 3 min read
+                {{results.articles[i]?.publishedAt}}
               </div>
             </div>
           </div>
           <!-- Mobile Populer1 End -->
-          <!-- Mobile Populer2 Start -->
-          <div class="d-flex justify-content-center" style="padding-bottom: 15px">
-            <div class="number d-flex col-1 justify-content-center">
-              02
-            </div>
-            <div class="d-flex flex-column col-9" style="padding-top: 5px;padding-left: 10px">
-              <div class="atitle" style="padding-bottom: 5px">
-                News Needs to Meet Its Audiences Where They Are
-              </div>
-              <div class="d-flex ttitle">
-                Dave Rogers in News
-              </div>
-              <div class="d-flex tdetail">
-                Jun 14 • 3 min read
-              </div>
-            </div>
-          </div>
-          <!-- Mobile Populer2 End -->
         </div>
       </div>
       <!-- Mobile Products Start -->
@@ -107,20 +86,20 @@
         Recent News
       </h3>
       <!-- Mobile Product1 Start -->
-      <div class="d-flex" style="margin-bottom: 20px" *ngFor="let new of results.articles;let i = index">
+      <div class="d-flex" style="margin-bottom: 20px" *ngFor="let new of results?.articles;let i = index">
         <div class="col-md-8 flex-column d-flex" style="color: white">
           <div class="d-flex title">
-            {{results.articles[i].author}}
+            {{results.articles[i]?.author}}
           </div>
           <div class="d-flex detail" style="max-width: 450px">
-            {{results.articles[i].title}}
+            {{results.articles[i]?.title}}
           </div>
           <div class="d-flex flex-column">
             <div class="d-flex atitle">
-              {{results.articles[i].source.name}}
+              {{results.articles[i]?.source.name}}
             </div>
             <div class="d-flex adetail">
-              {{results.articles[i].publishedAt}}
+              {{results.articles[i]?.publishedAt}}
             </div>
           </div>
         </div>

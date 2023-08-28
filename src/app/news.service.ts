@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {HttpClientModule} from "@angular/common/http";
 import {BehaviorSubject, Observable} from "rxjs";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ import {BehaviorSubject, Observable} from "rxjs";
 export class NewsService {
 
   results:any;
+  public productsPerPage=10;
+  public selectedPage=1;
   private sharedResults:BehaviorSubject<any> = new BehaviorSubject<any>(null);
   constructor(private http:HttpClient) { }
 
@@ -20,10 +23,10 @@ getNews(){
     .subscribe(response => {
       this.results = response;
       this.sharedResults.next(this.results)
-      console.log(this.results);
     });
 }
 getResults():Observable<any>{
+  let index=(this.selectedPage-1)*this.productsPerPage;
     return this.sharedResults.asObservable()
 }
 }

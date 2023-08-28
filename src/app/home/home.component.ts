@@ -8,6 +8,8 @@ import {NewsService} from "../news.service";
 })
 export class HomeComponent implements OnInit{
   results:any;
+  public productsPerPage=10;
+  public selectedPage=1;
   constructor(private newsService:NewsService) {
   }
   ngOnInit() {
