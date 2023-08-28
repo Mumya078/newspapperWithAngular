@@ -10,9 +10,10 @@ import {MatTableDataSource} from "@angular/material/table";
 export class NewsService {
 
   results:any;
+  public numb:number=0;
   public productsPerPage=10;
-  public selectedPage=1;
-  private sharedResults:BehaviorSubject<any> = new BehaviorSubject<any>(null);
+
+  public sharedResults:BehaviorSubject<any> = new BehaviorSubject<any>(null);
   constructor(private http:HttpClient) { }
 
 getNews(){
@@ -22,11 +23,13 @@ getNews(){
   this.http.get(url)
     .subscribe(response => {
       this.results = response;
-      this.sharedResults.next(this.results)
+      this.sharedResults.next(this.results);
     });
 }
-getResults():Observable<any>{
-  let index=(this.selectedPage-1)*this.productsPerPage;
-    return this.sharedResults.asObservable()
-}
+
+  getResultsForPage(pageNumber: number): any[] {
+    let index = (pageNumber - 1) * this.productsPerPage;
+    return this.results?.articles.slice(index, index + this.productsPerPage);
+  }
+
 }

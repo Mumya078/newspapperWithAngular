@@ -11,6 +11,7 @@ import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { CategorypageComponent } from './categorypage/categorypage.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {FormsModule} from "@angular/forms";
     HomeComponent,
     TopbarComponent,
     SliderComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    CategorypageComponent
   ],
     imports: [
         BrowserModule,

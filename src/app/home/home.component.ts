@@ -8,16 +8,33 @@ import {NewsService} from "../news.service";
 })
 export class HomeComponent implements OnInit{
   results:any;
-  public productsPerPage=10;
-  public selectedPage=1;
+  displayedItems: any[] = [];
+  currentPage = 1;
+  totalPages = 1;
+  pages:number[]=[];
   constructor(private newsService:NewsService) {
   }
   ngOnInit() {
-    this.newsService.getNews()
-    this.newsService.getResults().subscribe(data =>{
-      this.results=data;
-    })
+    this.newsService.getNews();
+    this.newsService.sharedResults.subscribe((data: any) => {
+      this.totalPages = Math.ceil(data?.articles.length / this.newsService.productsPerPage);
+      this.updateDisplayedItems();
+      this.generateArray();
+    });
   }
 
+  updateDisplayedItems() {
+    this.displayedItems = this.newsService.getResultsForPage(this.currentPage);
+  }
 
+  changePage(number:number){
+    this.currentPage=number;
+    this.updateDisplayedItems();
+  }
+
+  generateArray() {
+    if (!isNaN(this.totalPages) && this.totalPages >= 0) {
+      this.pages = Array.from({ length: this.totalPages }, (_, i) => i);
+    }
+  }
 }
