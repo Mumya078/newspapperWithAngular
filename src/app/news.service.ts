@@ -14,11 +14,12 @@ export class NewsService {
   public productsPerPage=10;
 
   public sharedResults:BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  public sharedResults2:BehaviorSubject<any> = new BehaviorSubject<any>(null);
   constructor(private http:HttpClient) { }
 
 getNews(){
     const apiKey='cf175920c7be4780a2707e5871d31572';
-    const url=`https://newsapi.org/v2/top-headlines?country=tr&apiKey=${apiKey}`;
+    const url=`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
   this.http.get(url)
     .subscribe(response => {
@@ -26,6 +27,17 @@ getNews(){
       this.sharedResults.next(this.results);
     });
 }
+
+  getFiltredNews(value:string):Observable<any>{
+    const apiKey='cf175920c7be4780a2707e5871d31572';
+    const url=`https://newsapi.org/v2/top-headlines?country=us&category=${value}apiKey=${apiKey}`;
+    this.http.get(url)
+      .subscribe(response => {
+        this.results = response;
+        this.sharedResults2.next(this.results);
+      });
+    return this.http.get(url);
+  }
 
   getResultsForPage(pageNumber: number): any[] {
     let index = (pageNumber - 1) * this.productsPerPage;

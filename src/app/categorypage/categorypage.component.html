@@ -1,21 +1,65 @@
 <div class="main d-flex">
-  <div class="col-md-3 d-flex flex-column" style="background-color: chocolate">
-
+  <div class="col-md-2 d-flex categories ">
     <div class="d-flex flex-column">
       <aside>
-        <h3>Categories</h3>
-        <div>
-          <div><input type="checkbox" name="startingReserves" value="starting" id="business"><label for="business">Business</label></div>
-          <div><input type="checkbox" name="startingReserves" value="reserves" id="entertaitment"><label for="entertaitment">Entertaitment</label></div>
-          <div><input type="checkbox" name="startingReserves" value="reserves" id="health"><label for="health">Health</label></div>
-          <div><input type="checkbox" name="startingReserves" value="reserves" id="science"><label for="science">Science</label></div>
-          <div><input type="checkbox" name="startingReserves" value="reserves" id="sports"><label for="sports">Sports</label></div>
-          <div><input type="checkbox" name="startingReserves" value="reserves" id="technology"><label for="technology">Technology</label></div>
+        <div style="font-size: 18px">Categories</div>
+        <div class="d-flex justify-content-center flex-column">
+          <div><input type="checkbox" checked value="general" (change)="pushValue($event)" id="general"><label style="padding-left: 5px" for="general">General</label></div>
+          <div><input type="checkbox"  value="business" (change)="pushValue($event)" id="business"><label style="padding-left: 5px" for="business">Business</label></div>
+          <div><input type="checkbox"  value="entertainment" (change)="pushValue($event)" id="entertainment"><label style="padding-left: 5px" for="entertainment">Entertaitment</label></div>
+          <div><input type="checkbox" value="health" (change)="pushValue($event)" id="health"><label style="padding-left: 5px" for="health">Health</label></div>
+          <div><input type="checkbox"  value="science" (change)="pushValue($event)" id="science"><label style="padding-left: 5px" for="science">Science</label></div>
+          <div><input type="checkbox"  value="sports" (change)="pushValue($event)" id="sports"><label style="padding-left: 5px" for="sports">Sports</label></div>
+          <div><input type="checkbox"  value="technology" (change)="pushValue($event)" id="technology"><label style="padding-left: 5px" for="technology">Technology</label></div>
+          <div style="font-size: 18px">Country</div>
+          <div><input type="checkbox" checked value="turkey" (change)="pushValue($event)" id="turkey"><label style="padding-left: 5px" for="general">Turkey</label></div>
+          <div><input type="checkbox"  value="usa" (change)="pushValue($event)" id="usa"><label style="padding-left: 5px" for="business">USA</label></div>
         </div>
       </aside>
     </div>
   </div>
-  <div class="col-md-9 d-flex" style="background-color: blueviolet">
-    as
+  <div class="col-md-10 d-flex flex-column news">
+
+    <div class="d-flex new" *ngFor="let item of results.articles;let i=index">
+      <div class="col-md-9 each">
+        <div class="header" >
+          <div class="title">
+            <h4>
+              <div class="author" *ngIf="results.articles[i].author===null;else elseblock1">
+                Unknow
+              </div>
+              <ng-template #elseblock1>
+                <div class="author">
+                  {{results.articles[i].author}}
+                </div>
+              </ng-template>
+            </h4>
+          </div>
+          <div class="detail">
+            {{results.articles[i].title}}
+          </div>
+        </div>
+        <div class="subdetail">
+          <div class="author" *ngIf="results.articles[i].author===null;else elseblock">
+            Unknow
+          </div>
+          <ng-template #elseblock>
+            <div class="author">
+              {{results.articles[i].author}}
+            </div>
+          </ng-template>
+          <div class="time">
+            {{results.articles[i].publishedAt}}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="w-100">
+          <img class="img" src="assets/img/dog.jpg">
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </div>
