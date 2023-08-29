@@ -12,6 +12,8 @@ import {AppRoutingModule} from "./app-routing.module";
 import { HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { CategorypageComponent } from './categorypage/categorypage.component';
+import { CategoryClassDirective } from './category-class.directive';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { CategorypageComponent } from './categorypage/categorypage.component';
     TopbarComponent,
     SliderComponent,
     CategoriesComponent,
-    CategorypageComponent
+    CategorypageComponent,
+    CategoryClassDirective,
+    SearchComponent
   ],
     imports: [
         BrowserModule,

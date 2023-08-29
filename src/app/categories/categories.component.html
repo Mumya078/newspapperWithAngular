@@ -1,20 +1,32 @@
 <div class="container d-flex flex-column" style="margin-top: 60px">
-  <div class="d-flex category">
-    Business
-  </div>
-  <div class="d-flex category">
-    Entertainment
-  </div>
-  <div class="d-flex category">
-    Health
-  </div>
-  <div class="d-flex category">
-    Science
-  </div>
-  <div class="d-flex category">
-    Sports
-  </div>
-  <div class="d-flex category">
-    Technology
-  </div>
+  <a [routerLink]='"/category"' (click)="setCategory($event)"  data-value="business">
+    <div class="d-flex category">
+      Business
+    </div>
+  </a>
+  <a data-value="entertainment" (click)="setCategory($event)" [routerLink]='"/category"'>
+    <div class="d-flex category">
+      Entertainment
+    </div>
+  </a>
+  <a data-value="health" (click)="setCategory($event)" [routerLink]='"/category"'>
+    <div class="d-flex category">
+      Health
+    </div>
+  </a>
+  <a data-value="science" (click)="setCategory($event)" [routerLink]='"/category"'>
+    <div class="d-flex category">
+      Science
+    </div>
+  </a>
+  <a data-value="sports" (click)="setCategory($event)" [routerLink]='"/category"'>
+    <div class="d-flex category">
+      Sports
+    </div>
+  </a>
+  <a data-value="technology" (click)="setCategory($event)" [routerLink]='"/category"'>
+    <div class="d-flex category">
+      Technology
+    </div>
+  </a>
 </div>

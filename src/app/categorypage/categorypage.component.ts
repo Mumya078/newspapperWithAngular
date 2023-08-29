@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NewsService} from "../news.service";
+import {TopbarComponent} from "../topbar/topbar.component";
 
 @Component({
   selector: 'categorypage',
@@ -8,28 +9,27 @@ import {NewsService} from "../news.service";
 })
 export class CategorypageComponent implements OnInit{
   results:any;
-  value:any="general&";
+  country:any="us";
+  category:any=this.newsService.category;
 
-  constructor(private newsService:NewsService) {
+
+  constructor(private newsService:NewsService,) {
   }
   ngOnInit() {
-
+    this.getData();
   }
 
-  pushValue(event:any){
-    const isChecked = event.target.checked;
-    const category = event.target.value;
-    if (isChecked) {
-      console.log('Push');
-      this.value = this.value + category + '&';
-      console.log(this.value);
-    } else {
-      console.log('pop');
-      this.value = this.value.replace(category + '&', '');
-      console.log(this.value);
-    }
+  changeCountry(event:any){
+    this.country=event.target.id;
+    this.getData()
+  }
+  changeCategory(event:any){
+    this.category=event.target.id;
+    this.getData()
+  }
 
-    this.newsService.getFiltredNews(this.value).subscribe((data: any) => {
+  getData(){
+    this.newsService.getFiltredNews(this.category,this.country).subscribe((data: any) => {
       this.results = data;
       console.log(this.results);
     });

@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row topbar d-flex">
     <div class="col-lg-6 d-flex justify-content-between">
-      <div class="title">
-        Yusuf Emir Tatlı
-      </div>
+      <a [routerLink]="'/home'">
+        <div class="title">
+          Yusuf Emir Tatlı
+        </div>
+      </a>
       <div class="mobilemenu" style="padding-top: 8px;padding-right: 5px;padding-bottom: 5px">
         <a (click)="toggleRoute()">
          <i class="fa-solid fa-bars"></i>
@@ -11,7 +13,7 @@
       </div>
     </div>
     <div class="col-lg-6 justify-content-center d-flex">
-      <div class="col-3 justify-content-between d-flex" style="margin-right: 3px">
+      <div class="col-3 justify-content-between d-flex" style="margin-right: 12px">
         <div class="itemcenter">
           <a href="javascript:void(0)">
             <i class="fa-brands fa-facebook" style="color: black"></i>
@@ -29,36 +31,56 @@
         </div>
       </div>
       <div class="col-9 justify-content-center d-flex">
+
         <div class="input-group yuvarlak" style="margin-right: 1px">
-          <input type="search" class="form-control yuvarlak" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <input type="search"
+                 class="form-control yuvarlak"
+                 placeholder="Search"
+                 aria-label="Search"
+                 aria-describedby="search-addon"
+
+          />
         </div>
         <span class="input-group-text border-0 yuvarlak" id="search-addon">
           <i class="fas fa-search" style="color: white"></i>
         </span>
       </div>
+
     </div>
   </div>
 
-<div class="desktop">
-  <div class="sticky-top stick d-flex justify-content-between">
-    <div class="d-flex">
-      Business
-    </div>
-    <div class="d-flex">
-      Entertainment
-    </div>
-    <div class="d-flex">
-      Health
-    </div>
-    <div class="d-flex">
-      Science
-    </div>
-    <div class="d-flex">
-      Sports
-    </div>
-    <div class="d-flex">
-      Technology
+  <div *ngIf="showDiv" class="desktop">
+    <div class="sticky-top stick d-flex justify-content-between" >
+      <a [routerLink]="'/category'" data-value="business" (click)="setCategory($event)">
+        <div class="d-flex">
+          Business
+        </div>
+      </a>
+      <a [routerLink]="'/category'" data-value="entertainment" (click)="setCategory($event)">
+        <div class="d-flex">
+          Entertainment
+        </div>
+      </a>
+      <a [routerLink]="'/category'" data-value="health" (click)="setCategory($event)">
+        <div class="d-flex">
+          Health
+        </div>
+      </a>
+      <a [routerLink]="'/category'" data-value="science" (click)="setCategory($event)">
+        <div class="d-flex">
+          Science
+        </div>
+      </a>
+      <a [routerLink]="'/category'" data-value="sports" (click)="setCategory($event)">
+        <div class="d-flex">
+          Sports
+        </div>
+      </a>
+      <a [routerLink]="'/category'" data-value="technology" (click)="setCategory($event)">
+        <div class="d-flex">
+          Technology
+        </div>
+      </a>
     </div>
   </div>
-</div>
 </div>

@@ -10,15 +10,17 @@ import {MatTableDataSource} from "@angular/material/table";
 export class NewsService {
 
   results:any;
-  public numb:number=0;
   public productsPerPage=10;
+  category:string="";
+  countryValue:any;
+  catValue:any;
 
   public sharedResults:BehaviorSubject<any> = new BehaviorSubject<any>(null);
   public sharedResults2:BehaviorSubject<any> = new BehaviorSubject<any>(null);
   constructor(private http:HttpClient) { }
 
 getNews(){
-    const apiKey='cf175920c7be4780a2707e5871d31572';
+    const apiKey='199cd040cce6414499b1a0aa7a48ab1d';
     const url=`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
   this.http.get(url)
@@ -27,10 +29,11 @@ getNews(){
       this.sharedResults.next(this.results);
     });
 }
-
-  getFiltredNews(value:string):Observable<any>{
-    const apiKey='cf175920c7be4780a2707e5871d31572';
-    const url=`https://newsapi.org/v2/top-headlines?country=us&category=${value}apiKey=${apiKey}`;
+  getFiltredNews(catValue:string,countryValue:string):Observable<any>{
+    const apiKey='199cd040cce6414499b1a0aa7a48ab1d';
+    const url=`https://newsapi.org/v2/top-headlines?country=${countryValue}&category=${catValue}&apiKey=${apiKey}`;
+    this.catValue=catValue;
+    this.countryValue=countryValue;
     this.http.get(url)
       .subscribe(response => {
         this.results = response;
@@ -38,10 +41,10 @@ getNews(){
       });
     return this.http.get(url);
   }
-
   getResultsForPage(pageNumber: number): any[] {
     let index = (pageNumber - 1) * this.productsPerPage;
     return this.results?.articles.slice(index, index + this.productsPerPage);
   }
+
 
 }
