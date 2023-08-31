@@ -4,14 +4,25 @@
 
       <div class="carousel-item" [ngClass]="{'active':isFirst}" *ngFor="let item of results?.articles | slice:0:3;let i =index;let isFirst=first">
         <div class="d-flex">
-          <div class="w-100">
+          <div class="w-100" *ngIf="results.articles[i].urlToImage!==null;else elseBlock1">
             <img [src]="results.articles[i].urlToImage" class="d-block imga w-100" alt="Slide 1">
           </div>
+          <ng-template #elseBlock1>
+            <div class="w-100">
+              <img src="assets/img/dog.jpg" class="d-block imga w-100" alt="Slide 1">
+            </div>
+          </ng-template>
           <div class="w-100 carousel-info d-flex info" style="background-color: whitesmoke">
-            <div style="max-width: 100%;max-height: 100%">
+            <div style="max-width: 100%;max-height: 100%" *ngIf="results.articles[i].author && results.articles[i].title !==null;else elseblock2">
               <h5>{{results.articles[i]?.author}}</h5>
               <p style="height: 90px">{{results.articles[i]?.title}}</p>
             </div>
+            <ng-template #elseblock2>
+              <div style="max-width: 100%;max-height: 100%">
+                <h5>Unknown</h5>
+                <p style="height: 90px">Unknown</p>
+              </div>
+            </ng-template>
           </div>
         </div>
       </div>

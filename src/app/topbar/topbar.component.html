@@ -15,37 +15,36 @@
     <div class="col-lg-6 justify-content-center d-flex">
       <div class="col-3 justify-content-between d-flex" style="margin-right: 12px">
         <div class="itemcenter">
-          <a href="javascript:void(0)">
+          <a [routerLink]="'/about'">
             <i class="fa-brands fa-facebook" style="color: black"></i>
           </a>
         </div>
         <div class="itemcenter">
-          <a href="javascript:void(0)">
+          <a [routerLink]="'/about'">
             <i class="fa-brands fa-instagram" style="color: black"></i>
           </a>
         </div>
         <div class="itemcenter">
-          <a href="javascript:void(0)">
+          <a [routerLink]="'/about'">
             <i class="fa-brands fa-twitter" style="color: black"></i>
           </a>
         </div>
       </div>
       <div class="col-9 justify-content-center d-flex">
-
         <div class="input-group yuvarlak" style="margin-right: 1px">
           <input type="search"
                  class="form-control yuvarlak"
                  placeholder="Search"
                  aria-label="Search"
                  aria-describedby="search-addon"
-
+                 [(ngModel)]="term"
+                 (input)="searchNews()"
           />
         </div>
         <span class="input-group-text border-0 yuvarlak" id="search-addon">
-          <i class="fas fa-search" style="color: white"></i>
+          <i  class="fas fa-search" style="color: white"></i>
         </span>
       </div>
-
     </div>
   </div>
 

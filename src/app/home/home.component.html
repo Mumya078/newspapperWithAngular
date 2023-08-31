@@ -8,13 +8,24 @@
       </h2>
       <div class="d-flex"  *ngFor="let new of displayedItems;let i = index" style="margin-bottom: 10px">
           <div class="col-md-8 flex-column d-flex" style="color: white">
-            <div class="d-flex title">
+            <div class="d-flex title" *ngIf="displayedItems[i].author!==null;else elseblock1">
               {{displayedItems[i].author}}
             </div>
-            <div class="d-flex detail">
+            <ng-template #elseblock1>
+              <div class="d-flex title">
+                Unknown
+              </div>
+            </ng-template>
+            <div class="d-flex detail" *ngIf="displayedItems[i].title!==null;else elseblock2">
               {{displayedItems[i].title}}
             </div>
-            <div class="d-flex flex-column" style="padding-bottom: 50px">
+            <ng-template #elseblock2>
+              <div class="d-flex detail" >
+                Unknown
+              </div>
+            </ng-template>
+
+            <div class="d-flex flex-column" *ngIf="displayedItems[i].source.name!==null;else elseblock3" style="padding-bottom: 50px">
               <div class="d-flex atitle">
                 {{displayedItems[i].source.name}}
               </div>
@@ -22,10 +33,25 @@
                 {{displayedItems[i].publishedAt}}
               </div>
             </div>
+            <ng-template #elseblock3>
+              <div class="d-flex flex-column" style="padding-bottom: 50px">
+                <div class="d-flex atitle">
+                  Unknown
+                </div>
+                <div class="d-flex adetail">
+                  Unknown
+                </div>
+              </div>
+            </ng-template>
         </div>
-        <div class="col-md-4 d-flex align-items-center justify-content-center img ">
+        <div class="col-md-4 d-flex align-items-center justify-content-center img" *ngIf="displayedItems[i].urlToImage!==null;else elseblock4">
           <img [src]="displayedItems[i].urlToImage"  class="img">
         </div>
+        <ng-template #elseblock4>
+          <div class="col-md-4 d-flex align-items-center justify-content-center img">
+            <img src="assets/img/dog.jpg"  class="img">
+          </div>
+        </ng-template>
       </div>
       <div class="row mt-3" style="width: 10px;height: 10px">
         <div class="col">
@@ -46,7 +72,7 @@
       <div class="number d-flex col-md-3 justify-content-center">
         {{i+1}}
       </div>
-      <div class="d-flex col-md-9 flex-column" style="padding-top: 5px">
+      <div class="d-flex col-md-9 flex-column" *ngIf="displayedItems[i].title!==null;else elseblock5" style="padding-top: 5px">
         <div class="atitle" style="padding-bottom: 25px">
           {{displayedItems[i].title}}
         </div>
@@ -57,6 +83,19 @@
           {{displayedItems[i].publishedAt}}
         </div>
       </div>
+      <ng-template #elseblock5>
+        <div class="d-flex col-md-9 flex-column" style="padding-top: 5px">
+          <div class="atitle" style="padding-bottom: 25px">
+            Unknown
+          </div>
+          <div class="d-flex ttitle">
+            Unknown
+          </div>
+          <div class="d-flex tdetail">
+            Unknown
+          </div>
+        </div>
+      </ng-template>
     </div>
   </div>
   </div>
@@ -75,7 +114,7 @@
             <div class="number d-flex col-1 justify-content-center">
               {{i+1}}
             </div>
-            <div class="d-flex flex-column col-9" style="padding-top: 5px;padding-left: 10px">
+            <div class="d-flex flex-column col-9" *ngIf="displayedItems[i].title!==null;else elseblock6" style="padding-top: 5px;padding-left: 10px">
               <div class="atitle" style="padding-bottom: 5px">
                 {{displayedItems[i]?.title}}
               </div>
@@ -86,6 +125,19 @@
                 {{displayedItems[i]?.publishedAt}}
               </div>
             </div>
+            <ng-template #elseblock6>
+              <div class="d-flex flex-column col-9" style="padding-top: 5px;padding-left: 10px">
+                <div class="atitle" style="padding-bottom: 5px">
+                  Unknown
+                </div>
+                <div class="d-flex ttitle">
+                  Unknown
+                </div>
+                <div class="d-flex tdetail">
+                  Unknown
+                </div>
+              </div>
+            </ng-template>
           </div>
           <!-- Mobile Populer1 End -->
         </div>
@@ -97,13 +149,23 @@
       <!-- Mobile Product1 Start -->
       <div class="d-flex" style="margin-bottom: 20px" *ngFor="let new of displayedItems;let i = index">
         <div class="col-md-8 flex-column d-flex" style="color: white">
-          <div class="d-flex title">
+          <div class="d-flex title" *ngIf="displayedItems[i].author!==null;else elseblock7">
             {{displayedItems[i]?.author}}
           </div>
-          <div class="d-flex detail" style="max-width: 450px">
+          <ng-template #elseblock7>
+            <div class="d-flex title">
+              Unknown
+            </div>
+          </ng-template>
+          <div class="d-flex detail" *ngIf="displayedItems[i].title!==null;else elseblock8" style="max-width: 450px">
             {{displayedItems[i]?.title}}
           </div>
-          <div class="d-flex flex-column">
+          <ng-template #elseblock8>
+            <div class="d-flex detail" style="max-width: 450px">
+              Unknown
+            </div>
+          </ng-template>
+          <div class="d-flex flex-column" *ngIf="displayedItems[i].source.name!==null;else elseblock9">
             <div class="d-flex atitle">
               {{displayedItems[i]?.source.name}}
             </div>
@@ -111,6 +173,16 @@
               {{displayedItems[i]?.publishedAt}}
             </div>
           </div>
+          <ng-template #elseblock9>
+            <div class="d-flex flex-column">
+              <div class="d-flex atitle">
+                Unknown
+              </div>
+              <div class="d-flex adetail">
+                Unknown
+              </div>
+            </div>
+          </ng-template>
         </div>
         <div class="col-md-4 d-flex align-items-center justify-content-center">
           <img [src]="displayedItems[i].urlToImage" class="img">

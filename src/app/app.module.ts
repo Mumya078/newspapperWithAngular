@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 import { CategorypageComponent } from './categorypage/categorypage.component';
 import { CategoryClassDirective } from './category-class.directive';
 import { SearchComponent } from './search/search.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SearchComponent } from './search/search.component';
     CategoriesComponent,
     CategorypageComponent,
     CategoryClassDirective,
-    SearchComponent
+    SearchComponent,
+    AboutComponent
   ],
     imports: [
         BrowserModule,

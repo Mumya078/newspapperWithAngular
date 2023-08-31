@@ -9,29 +9,40 @@ import {TopbarComponent} from "../topbar/topbar.component";
 })
 export class CategorypageComponent implements OnInit{
   results:any;
-  country:any="us";
-  category:any=this.newsService.category;
+  country:any="tr";
+  category:any=this.newsService.catValue;
 
 
   constructor(private newsService:NewsService,) {
   }
   ngOnInit() {
-    this.getData();
+    this.newsService.getData();
+    this.updateData();
+    this.newsService.sharedResults3.subscribe((data: any) => {
+      this.results = data;
+      console.log(this.results);
+    });
   }
 
   changeCountry(event:any){
-    this.country=event.target.id;
-    this.getData()
+    this.newsService.countryValue = event.target.id;
+    this.country = event.target.id; // Kategoriyi güncelle
+    this.newsService.getData();
+    console.log(this.country);
+    this.updateData()
+
   }
   changeCategory(event:any){
-    this.category=event.target.id;
-    this.getData()
+    this.newsService.catValue = event.target.id;
+    this.category = event.target.id; // Kategoriyi güncelle
+    this.newsService.getData();
+    console.log(this.category);
+    this.updateData()
   }
 
-  getData(){
-    this.newsService.getFiltredNews(this.category,this.country).subscribe((data: any) => {
+  updateData(){
+    this.newsService.sharedResults2.subscribe((data: any) => {
       this.results = data;
-      console.log(this.results);
     });
   }
 

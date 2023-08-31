@@ -8,11 +8,13 @@ import {NewsService} from "../news.service";
 })
 export class CategoriesComponent {
   category:any=""
+  term:string="";
   constructor(private newsService:NewsService) {
   }
   setCategory(event:any){
     this.category=event.currentTarget.getAttribute("data-value");
-    this.newsService.category=this.category;
+    this.newsService.catValue=this.category;
     console.log(this.newsService.category);
   }
+
 }

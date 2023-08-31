@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { NewsService } from '../news.service';
 import { filter } from 'rxjs/operators';
+import {THREE} from "@angular/cdk/keycodes";
 
 
 
@@ -13,8 +14,8 @@ import { filter } from 'rxjs/operators';
 export class TopbarComponent implements OnInit{
   category:string="";
   showDiv: boolean = false;
-  searchQuery: string = '';
-  filteredList: any[] = []; // YourItemType listenizin öğe tipine göre değiştirilmeli
+
+  term:string="";
 
     constructor(private router: Router,
                 private newsService: NewsService,
@@ -26,11 +27,16 @@ export class TopbarComponent implements OnInit{
       .subscribe((event: NavigationEnd) => {
         const urlSegments = event.url.split('/');
         const lastSegment = urlSegments[urlSegments.length - 1];
-        this.showDiv = lastSegment !== 'category';
+        if (lastSegment!='home')
+        {
+          this.showDiv=false;
+        }
+        else {
+          this.showDiv=true;
+        }
       });
+    this.searchNews();
   }
-
-
   toggleRoute(): void {
         const currentUrl = this.router.url;
         if (currentUrl.includes('home')) {
@@ -41,11 +47,15 @@ export class TopbarComponent implements OnInit{
           this.router.navigate(['/home']);
         }
     }
-
     setCategory(event:any){
       this.category=event.currentTarget.getAttribute("data-value");
-      this.newsService.category=this.category;
+      this.newsService.catValue=this.category;
       console.log(this.newsService.category);
     }
+
+  searchNews() {
+    this.newsService.getNewsWithSearch(this.term);
+  }
+
 
   protected readonly event = event;}
