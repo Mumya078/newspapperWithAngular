@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable} from "rxjs";
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +16,15 @@ export class NewsService {
   countryValue:any="tr";
   catValue:any;
 
+  isTermEmpty:any;
   filtred:any;
 
   public sharedResults:BehaviorSubject<any> = new BehaviorSubject<any>(null);
   public sharedResults2:BehaviorSubject<any> = new BehaviorSubject<any>(null);
   public sharedResults3:BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(private http:HttpClient
+  constructor(private http:HttpClient,
+              private route: ActivatedRoute
   ) { }
 
 getNews(){
@@ -53,6 +57,7 @@ getNews(){
 
   getNewsWithSearch(term:string) {
     if (term!==""){
+      this.isTermEmpty=false;
       const apiKey = 'e1fa4b99908040e8ac980138b68274c0';
       const url = `https://newsapi.org/v2/top-headlines?q=${term}&apiKey=${apiKey}`;
       this.http.get(url).subscribe(response =>{
@@ -61,8 +66,14 @@ getNews(){
       })
     }
     else {
+      this.isTermEmpty=true;
       this.getData()
     }
+  }
+  getLastSegment(): Observable<string> {
+    return this.route.url.pipe(
+      map(segments => segments[segments.length - 1].path)
+    );
   }
 
 }

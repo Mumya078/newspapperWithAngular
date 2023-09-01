@@ -1,34 +1,98 @@
-.dev{
-  font-size: 28px;
-  color: gray;
+@media screen and (min-width: 768px){
+  .desktop{
+    display: flex;
+  }
+  .dev{
+    font-size: 28px;
+    color: gray;
+  }
+
+  .etitle{
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+  }
+  .edesc{
+    font-size: 16px;
+    color: black;
+  }
+
+  .language{
+    font-size: 22px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+  }
+  .sublang{
+    font-size: 14px;
+    color: gray;
+    font-family: 'Poppins', sans-serif;
+  }
+  .pdesc{
+    font-size: 16px;
+    color: gray;
+  }
+  .each{
+    height: 90px;
+    margin-bottom: 25px;
+  }
+  .mobile{
+    display: none;
+  }
+  .header{
+    font-size: 18px;
+    color: black;
+  }
 }
 
-.etitle{
-  font-size: 18px;
-  font-family: 'Poppins', sans-serif;
-  color: black;
-}
-.edesc{
-  font-size: 16px;
-  color: black;
-}
+@media screen and (max-width: 767px) {
+  .desktop{
+    display: none;
+  }
 
-.language{
-  font-size: 22px;
-  color: black;
-  font-family: 'Poppins', sans-serif;
-}
-.sublang{
-  font-size: 14px;
-  color: gray;
-  font-family: 'Poppins', sans-serif;
-}
-.pdesc{
-  font-size: 16px;
-  color: gray;
-}
-.each{
-  height: 90px;
-  margin-bottom: 25px;
+  .mobile{
+    display: flex;
+    padding-top: 15px;
+  }
+  .dev{
+    font-size: 22px;
+    color: gray;
+  }
+  .my{
+    font-size: 14px;
+    color: black;
+  }
+  .etitle{
+    font-size: 16px;
+    color: black;
+    padding-bottom: 5px;
+  }
+  .edesc{
+    font-size: 16px;
+  }
+  .pdesc{
+    font-size: 14px;
+  }
+  .each{
+    margin-bottom: 20px;
+  }
+  .language{
+    font-size: 18px;
+    color: black;
+  }
+  .sublang{
+    font-size: 14px;
+    color: gray;
+    padding-left: 1px;
+  }
+  .ic{
+    padding-top: 5px;
+    padding-right: 8px;
+    font-size: 16px;
+    width: 30px;
+  }
+  .ice{
+    margin-bottom: 3px;
+  }
+
 }
 

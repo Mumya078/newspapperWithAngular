@@ -16,8 +16,10 @@ export class CategorypageComponent implements OnInit{
   constructor(private newsService:NewsService,) {
   }
   ngOnInit() {
+    if (this.newsService.isTermEmpty==true){
+      this.updateData();
+    }
     this.newsService.getData();
-    this.updateData();
     this.newsService.sharedResults3.subscribe((data: any) => {
       this.results = data;
       console.log(this.results);

@@ -14,7 +14,7 @@ import {THREE} from "@angular/cdk/keycodes";
 export class TopbarComponent implements OnInit{
   category:string="";
   showDiv: boolean = false;
-
+  lastSegment:string="";
   term:string="";
 
     constructor(private router: Router,

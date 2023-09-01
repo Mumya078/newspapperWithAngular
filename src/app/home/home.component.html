@@ -1,6 +1,5 @@
 <app-slider></app-slider>
 <div class="container d-flex " style="margin-top: 50px">
-
   <div class="desktop">
     <div class="d-flex flex-column">
       <h2 style="padding-bottom: 80px">
@@ -148,7 +147,7 @@
       </h3>
       <!-- Mobile Product1 Start -->
       <div class="d-flex" style="margin-bottom: 20px" *ngFor="let new of displayedItems;let i = index">
-        <div class="col-md-8 flex-column d-flex" style="color: white">
+        <div class="col-md-8 flex-column d-flex" style="color: white;width: 256px">
           <div class="d-flex title" *ngIf="displayedItems[i].author!==null;else elseblock7">
             {{displayedItems[i]?.author}}
           </div>
@@ -184,9 +183,14 @@
             </div>
           </ng-template>
         </div>
-        <div class="col-md-4 d-flex align-items-center justify-content-center">
+        <div *ngIf="displayedItems[i].urlToImage!==null;else elseblock10" class="col-md-4 d-flex align-items-center justify-content-center">
           <img [src]="displayedItems[i].urlToImage" class="img">
         </div>
+        <ng-template #elseblock10>
+          <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <img src="assets/img/dog.jpg" class="img">
+          </div>
+        </ng-template>
 
       </div>
       <div class="row mt-3" style="width: 10px;height: 10px">
