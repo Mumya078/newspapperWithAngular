@@ -5,7 +5,9 @@
       <div class="carousel-item" [ngClass]="{'active':isFirst}" *ngFor="let item of results?.articles | slice:0:3;let i =index;let isFirst=first">
         <div class="d-flex">
           <div class="w-100" *ngIf="results.articles[i].urlToImage!==null;else elseBlock1">
-            <img [src]="results.articles[i].urlToImage" class="d-block imga w-100" alt="Slide 1">
+            <a href="{{results.articles[i].url}}">
+              <img [src]="results.articles[i].urlToImage" class="d-block imga w-100" alt="Slide 1">
+            </a>
           </div>
           <ng-template #elseBlock1>
             <div class="w-100">

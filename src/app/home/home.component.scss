@@ -36,7 +36,11 @@
 }
 .img{
   max-width: 100%;
-  max-height: 100%;
+  min-width: 245px;
+  max-height: 135px;
+  width: auto; /* Genişlik otomatik olarak ayarlanacak */
+  height: auto; /* Yükseklik otomatik olarak ayarlanacak */
+  object-fit: cover;
 }
 
 .ttitle{
@@ -69,7 +73,10 @@
   }
   .img {
     max-width: 120px;
-    max-height: 150px;
+    min-width: 120px;
+    max-height: 80px;
+    width: auto; /* Genişlik otomatik olarak ayarlanacak */
+    height: auto; /* Yükseklik otomatik olarak ayarlanacak */
     object-fit: cover;
   }
   .atitle {

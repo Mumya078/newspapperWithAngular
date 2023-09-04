@@ -43,11 +43,13 @@
               </div>
             </ng-template>
         </div>
-        <div class="col-md-4 d-flex align-items-center justify-content-center img" *ngIf="displayedItems[i].urlToImage!==null;else elseblock4">
-          <img [src]="displayedItems[i].urlToImage"  class="img">
+        <div class="col-md-4 d-flex align-items-center justify-content-center" style="width: 245px;height: 110px" *ngIf="displayedItems[i].urlToImage!==null;else elseblock4">
+          <a href="{{displayedItems[i].url}}" style="height: 110px">
+            <img [src]="displayedItems[i].urlToImage"  class="img">
+          </a>
         </div>
         <ng-template #elseblock4>
-          <div class="col-md-4 d-flex align-items-center justify-content-center img">
+          <div class="col-md-4 d-flex align-items-center justify-content-center" style="width: 245px;height: 110px">
             <img src="assets/img/dog.jpg"  class="img">
           </div>
         </ng-template>
@@ -147,7 +149,7 @@
       </h3>
       <!-- Mobile Product1 Start -->
       <div class="d-flex" style="margin-bottom: 20px" *ngFor="let new of displayedItems;let i = index">
-        <div class="col-md-8 flex-column d-flex" style="color: white;width: 256px">
+        <div class="col-md-7 flex-column d-flex" style="color: white;width: 256px">
           <div class="d-flex title" *ngIf="displayedItems[i].author!==null;else elseblock7">
             {{displayedItems[i]?.author}}
           </div>
@@ -183,7 +185,7 @@
             </div>
           </ng-template>
         </div>
-        <div *ngIf="displayedItems[i].urlToImage!==null;else elseblock10" class="col-md-4 d-flex align-items-center justify-content-center">
+        <div *ngIf="displayedItems[i].urlToImage!==null;else elseblock10" class="col-md-5 d-flex align-items-center justify-content-center">
           <img [src]="displayedItems[i].urlToImage" class="img">
         </div>
         <ng-template #elseblock10>

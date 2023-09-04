@@ -28,7 +28,7 @@ export class NewsService {
   ) { }
 
 getNews(){
-    const apiKey='e1fa4b99908040e8ac980138b68274c0';
+    const apiKey='cf175920c7be4780a2707e5871d31572';
     const url=`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
   this.http.get(url)
@@ -38,7 +38,7 @@ getNews(){
     });
 }
   getFiltredNews(catValue:string,countryValue:string):Observable<any>{
-    const apiKey='e1fa4b99908040e8ac980138b68274c0';
+    const apiKey='cf175920c7be4780a2707e5871d31572';
     const url=`https://newsapi.org/v2/top-headlines?country=${countryValue}&category=${catValue}&apiKey=${apiKey}`;
     this.catValue=catValue;
     this.countryValue=countryValue;
@@ -58,7 +58,7 @@ getNews(){
   getNewsWithSearch(term:string) {
     if (term!==""){
       this.isTermEmpty=false;
-      const apiKey = 'e1fa4b99908040e8ac980138b68274c0';
+      const apiKey = 'cf175920c7be4780a2707e5871d31572';
       const url = `https://newsapi.org/v2/top-headlines?q=${term}&apiKey=${apiKey}`;
       this.http.get(url).subscribe(response =>{
         this.filtred=response;
